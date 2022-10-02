@@ -46,9 +46,11 @@ namespace AdoptionWebsite.Models.Repo
             }
             _db.SaveChanges();
 
+            Animal item_an = _db.Animal.Where(w => w.Idno == id).FirstOrDefault();
             Animal_FilesViewModel item = new Animal_FilesViewModel
             {
-                Animals = _db.Animal.Where(w => w.Idno == id).FirstOrDefault(),
+                Animals = item_an,
+                _AnimalCate = _db.AnimalCate.Find(item_an.CateId),
                 _Files = _db.Files.Where(w => w.TableId == id && w.XTable == "Animal").ToList()
             };
 

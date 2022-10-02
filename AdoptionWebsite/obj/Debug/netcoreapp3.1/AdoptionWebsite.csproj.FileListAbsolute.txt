@@ -178,3 +178,4 @@ D:\AdoptionWebsite\AdoptionWebsite\obj\Debug\netcoreapp3.1\Razor\Views\Animal\An
 D:\AdoptionWebsite\AdoptionWebsite\obj\Debug\netcoreapp3.1\Razor\Views\Animal\Index.cshtml.g.cs
 D:\AdoptionWebsite\AdoptionWebsite\obj\Debug\netcoreapp3.1\Razor\Views\Animal\Edit.cshtml.g.cs
 D:\AdoptionWebsite\AdoptionWebsite\obj\Debug\netcoreapp3.1\AdoptionWebsite.csprojAssemblyReference.cache
+D:\AdoptionWebsite\AdoptionWebsite\obj\Debug\netcoreapp3.1\Razor\Views\Animal\Detail.cshtml.g.cs

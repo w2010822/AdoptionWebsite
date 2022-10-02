@@ -99,6 +99,12 @@ namespace AdoptionWebsite.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult Detail(int id = 1)
+        {
+            Animal_FilesViewModel item = MyDB.GetAnimalByID(id);
+            return View(item);
+        }
+
         public IActionResult Edit(int id = 1)
         {
             string[,] itemList = { { "公", "M" }, { "母", "F" } };
@@ -161,11 +167,12 @@ namespace AdoptionWebsite.Controllers
 
                         if (itemFiles.Count > 0) MyDB.AddPhoto(itemFiles);
                     }
-                    
+
                 }
-               
+
             }
             return RedirectToAction("Index");
         }
+
     }
 }

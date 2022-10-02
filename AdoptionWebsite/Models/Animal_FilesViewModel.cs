@@ -8,6 +8,7 @@ namespace AdoptionWebsite.Models
     public class Animal_FilesViewModel
     {
         public Animal Animals { get; set; }
+        public AnimalCate _AnimalCate { get; set; }
         public List<Files> _Files { get; set; }
     }
 }

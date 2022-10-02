@@ -34,44 +34,43 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Animal_Cate.CateName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Animals.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Animals.Memo)
-            </td>
-            <td>
-                @{
-                    string isadoption = "未領養";
-                    if (item.Animals.IsAdoption == 1) isadoption = "已領養";
-                }
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Animal_Cate.CateName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Animals.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Animals.Memo)
+                </td>
+                <td>
+                    @{
+                        string isadoption = "未領養";
+                        if (item.Animals.IsAdoption == 1) isadoption = "已領養";
+                    }
 
-                @isadoption
-            </td>
-            <td>
-                @{
-                    string sex = "公";
-                    if (item.Animals.Sex == "F") sex = "母";
-                }
+                    @isadoption
+                </td>
+                <td>
+                    @{
+                        string sex = "公";
+                        if (item.Animals.Sex == "F") sex = "母";
+                    }
 
-                @sex
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Animals.Idno">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Animals.Idno">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Animals.Idno">Delete</a>
-            </td>
-        </tr>
+                    @sex
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Animals.Idno">Edit</a> |
+                    <a asp-action="Detail" asp-route-id="@item.Animals.Idno">Details</a>
+                </td>
+            </tr>
         }
         @{
             int count = ViewBag.TotalCount;
             int nowpage = ViewBag.NowPage;
-            int totalpage = count / 5;
-            if (count % 5 > 0)
+            int totalpage = count / 20;
+            if (count % 20 > 0)
             {
                 totalpage += 1;
             }
