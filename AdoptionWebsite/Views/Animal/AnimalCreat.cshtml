@@ -1,0 +1,63 @@
+﻿@model AdoptionWebsite.Models.Animal
+
+@{
+    ViewData["Title"] = "AnimalCreat";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>AnimalCreat</h1>
+
+<h4>Animal</h4>
+<hr />
+<div class="row">
+    @if (!ViewData.ModelState.IsValid && ViewData.ModelState["Error"].Errors.Count > 0)
+    {
+        <label style="color:red">@ViewData.ModelState["Error"].Errors.First().ErrorMessage</label>
+    }
+    <div class="col-md-4">
+        @using (Html.BeginForm("AnimalCreat", "Animal", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken();
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CateId" class="control-label"></label>
+                @Html.DropDownListFor(model => model.CateId, (IEnumerable<SelectListItem>)ViewBag.ListCate, new { @class = "form-control" })
+                <span asp-validation-for="CateId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Memo" class="control-label"></label>
+                <input asp-for="Memo" class="form-control" />
+                <span asp-validation-for="Memo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sex" class="control-label"></label>
+                @Html.DropDownListFor(model => model.Sex, (IEnumerable<SelectListItem>)ViewBag.List, new { @class = "form-control" })
+                <span asp-validation-for="Sex" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">圖檔</label>
+                <input type="file" name="files" multiple accept="image/*" />
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        }
+
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

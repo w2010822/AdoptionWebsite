@@ -1,0 +1,99 @@
+﻿@model AdoptionWebsite.Models.Animal_FilesViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    button {
+        border: none;
+    }
+</style>
+
+<h1>Edit</h1>
+
+<h4>Animal</h4>
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        @using (Html.BeginForm("Edit", "Animal", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @Html.HiddenFor(model => model.Animals.Idno)
+            <div class="form-group">
+                @Html.LabelFor(model => model.Animals.CateId)
+                @Html.DropDownListFor(model => model.Animals.CateId, (IEnumerable<SelectListItem>)ViewBag.ListCate, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Animals.CateId, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Animals.Name)
+                @Html.EditorFor(model => model.Animals.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Animals.Name, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Animals.Memo)
+                @Html.EditorFor(model => model.Animals.Memo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Animals.Memo, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Animals.IsAdoption)
+                @Html.DropDownListFor(model => model.Animals.IsAdoption, (IEnumerable<SelectListItem>)ViewBag.ListIsAdoption, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Animals.IsAdoption, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Animals.Sex)
+                @Html.DropDownListFor(model => model.Animals.Sex, (IEnumerable<SelectListItem>)ViewBag.List, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Animals.Sex, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">圖檔</label><br />
+                <input type="file" name="files" multiple accept="image/*" /><br />
+                <br />
+                @{
+                    if (Model._Files.Count > 0)
+                    {
+                        foreach (var i in Model._Files)
+                        {
+                            string src = Url.Content("~/" + i.FilePath);
+                            <div id="file_@i.Idno" style="display:inline">
+                                <img style="max-height:100px;" src="@src" />
+                                <button type="button" onclick="UpdatePhoto(@i.Idno)" class="btn-danger">刪除</button>
+                            </div>
+                        }
+                    }
+                }
+
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        }
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<script>
+    function UpdatePhoto(id) {
+        if (confirm("確定要刪除嗎?")) {
+
+            $.ajax({
+                url: '@Url.Content("~/api/iPhoto/")'+id,
+                type: 'delete',
+                success: function (response) {
+                    if (response > 0) { $("#file_" + id).remove();}
+                }
+            });
+
+        }
+    }
+</script>

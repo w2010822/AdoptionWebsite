@@ -1,0 +1,98 @@
+﻿@model IEnumerable<AdoptionWebsite.Models.Animal_AnimalCateViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="AnimalCreat">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Animal_Cate.CateName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Animals.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Animals.Memo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Animals.IsAdoption)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Animals.Sex)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Animal_Cate.CateName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Animals.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Animals.Memo)
+            </td>
+            <td>
+                @{
+                    string isadoption = "未領養";
+                    if (item.Animals.IsAdoption == 1) isadoption = "已領養";
+                }
+
+                @isadoption
+            </td>
+            <td>
+                @{
+                    string sex = "公";
+                    if (item.Animals.Sex == "F") sex = "母";
+                }
+
+                @sex
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Animals.Idno">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Animals.Idno">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Animals.Idno">Delete</a>
+            </td>
+        </tr>
+        }
+        @{
+            int count = ViewBag.TotalCount;
+            int nowpage = ViewBag.NowPage;
+            int totalpage = count / 5;
+            if (count % 5 > 0)
+            {
+                totalpage += 1;
+            }
+
+            if (nowpage > 1)
+            {
+                @:&nbsp;
+                @Html.ActionLink("上一頁", "Index", new { p = nowpage - 1 })
+            }
+
+            for (int i = 1; i <= totalpage; i++)
+            {
+                @:&nbsp;
+                @Html.ActionLink(i.ToString(), "Index", new { p = i })
+            }
+
+            if (nowpage < totalpage)
+            {
+                @:&nbsp;
+                @Html.ActionLink("下一頁", "Index", new { p = nowpage + 1 })
+            }
+        }
+    </tbody>
+</table>
