@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
+// Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
+// If you have enabled NRTs for your project, then un-comment the following line:
+// #nullable disable
+
 namespace AdoptionWebsite.Models
 {
     public partial class Animal
@@ -17,6 +21,5 @@ namespace AdoptionWebsite.Models
         public int? IsAdoption { get; set; }
         [Display(Name = "性別")]
         public string Sex { get; set; }
-
     }
 }

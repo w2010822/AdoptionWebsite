@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AdoptionWebsite.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AdoptionWebsite.Controllers
 {
+    [Authorize]
     public class AnimalCatesController : Controller
     {
         public Animal_AdoptionContext _context = new Animal_AdoptionContext();

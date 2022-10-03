@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
 // If you have enabled NRTs for your project, then un-comment the following line:
@@ -7,13 +8,12 @@ using System.Collections.Generic;
 
 namespace AdoptionWebsite.Models
 {
-    public partial class Files
+    public partial class DbUser
     {
-        public int Idno { get; set; }
-        public string XTable { get; set; }
-        public int? TableId { get; set; }
-        public string FileName { get; set; }
-        public string FilePath { get; set; }
-        public int? IsDel { get; set; }
+        public int Id { get; set; }
+        [Display(Name ="帳號")]
+        public string UserName { get; set; }
+        [Display(Name = "密碼")]
+        public string UserPassword { get; set; }
     }
 }

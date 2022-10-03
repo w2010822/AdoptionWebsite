@@ -18,7 +18,7 @@ namespace AdoptionWebsite.Controllers
         public IActionResult Delete(int id)
         {
             Files item = _db.Files.Find(id);
-            item.isDel = 1;
+            item.IsDel = 1;
             int c = _db.SaveChanges();
             return Ok(c);
         }

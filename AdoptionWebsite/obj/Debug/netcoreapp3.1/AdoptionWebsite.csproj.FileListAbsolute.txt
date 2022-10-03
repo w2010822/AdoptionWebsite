@@ -167,8 +167,6 @@ D:\AdoptionWebsite\AdoptionWebsite\bin\Debug\netcoreapp3.1\runtimes\win-arm\nati
 D:\AdoptionWebsite\AdoptionWebsite\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\e_sqlite3.dll
 D:\AdoptionWebsite\AdoptionWebsite\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\e_sqlite3.dll
 D:\AdoptionWebsite\AdoptionWebsite\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\e_sqlite3.dll
-D:\AdoptionWebsite\AdoptionWebsite\obj\Debug\netcoreapp3.1\AdoptionWebsite.csproj.CoreCompileInputs.cache
-D:\AdoptionWebsite\AdoptionWebsite\obj\Debug\netcoreapp3.1\AdoptionWebsite.MvcApplicationPartsAssemblyInfo.cache
 D:\AdoptionWebsite\AdoptionWebsite\obj\Debug\netcoreapp3.1\Razor\Views\AnimalCates\Create.cshtml.g.cs
 D:\AdoptionWebsite\AdoptionWebsite\obj\Debug\netcoreapp3.1\Razor\Views\AnimalCates\Delete.cshtml.g.cs
 D:\AdoptionWebsite\AdoptionWebsite\obj\Debug\netcoreapp3.1\Razor\Views\AnimalCates\Details.cshtml.g.cs
@@ -177,5 +175,9 @@ D:\AdoptionWebsite\AdoptionWebsite\obj\Debug\netcoreapp3.1\Razor\Views\AnimalCat
 D:\AdoptionWebsite\AdoptionWebsite\obj\Debug\netcoreapp3.1\Razor\Views\Animal\AnimalCreat.cshtml.g.cs
 D:\AdoptionWebsite\AdoptionWebsite\obj\Debug\netcoreapp3.1\Razor\Views\Animal\Index.cshtml.g.cs
 D:\AdoptionWebsite\AdoptionWebsite\obj\Debug\netcoreapp3.1\Razor\Views\Animal\Edit.cshtml.g.cs
-D:\AdoptionWebsite\AdoptionWebsite\obj\Debug\netcoreapp3.1\AdoptionWebsite.csprojAssemblyReference.cache
 D:\AdoptionWebsite\AdoptionWebsite\obj\Debug\netcoreapp3.1\Razor\Views\Animal\Detail.cshtml.g.cs
+D:\AdoptionWebsite\AdoptionWebsite\obj\Debug\netcoreapp3.1\AdoptionWebsite.csprojAssemblyReference.cache
+D:\AdoptionWebsite\AdoptionWebsite\obj\Debug\netcoreapp3.1\Razor\Views\Login\Index.cshtml.g.cs
+D:\AdoptionWebsite\AdoptionWebsite\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\AdoptionWebsite\AdoptionWebsite\obj\Debug\netcoreapp3.1\AdoptionWebsite.csproj.CoreCompileInputs.cache
+D:\AdoptionWebsite\AdoptionWebsite\obj\Debug\netcoreapp3.1\AdoptionWebsite.MvcApplicationPartsAssemblyInfo.cache

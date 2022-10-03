@@ -10,9 +10,11 @@ using System.Web;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AdoptionWebsite.Controllers
 {
+    [Authorize]
     public class AnimalController : Controller
     {
         CommTool Comm = new CommTool();
@@ -20,10 +22,12 @@ namespace AdoptionWebsite.Controllers
         private IAnimalCateRepository MyDBCate = new AnimalCateRepository();
 
         private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly IHttpContextAccessor _accessor;
 
-        public AnimalController(IHostingEnvironment hostingEnvironment)
+        public AnimalController(IHostingEnvironment hostingEnvironment, IHttpContextAccessor accessor)
         {
             _hostingEnvironment = hostingEnvironment;
+            _accessor = accessor;
         }
 
         public IActionResult Index(int p = 1)

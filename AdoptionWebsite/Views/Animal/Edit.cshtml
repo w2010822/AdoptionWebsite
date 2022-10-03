@@ -107,7 +107,7 @@
              $.ajax({
                 url: '@Url.Content("~/api/iAnimal/")'+id,
                 type: 'delete',
-                 success: function (response) {
+                success: function (response) {
                      if (response > 0) { location.href="@Url.Content("~/Animal/Index/")" }
                     else {
                         alert("刪除失敗");

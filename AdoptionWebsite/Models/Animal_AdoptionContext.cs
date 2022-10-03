@@ -4,6 +4,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.Extensions.Configuration;
 
+// Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
+// If you have enabled NRTs for your project, then un-comment the following line:
+// #nullable disable
+
 namespace AdoptionWebsite.Models
 {
     public partial class Animal_AdoptionContext : DbContext
@@ -19,6 +23,7 @@ namespace AdoptionWebsite.Models
 
         public virtual DbSet<Animal> Animal { get; set; }
         public virtual DbSet<AnimalCate> AnimalCate { get; set; }
+        public virtual DbSet<DbUser> DbUser { get; set; }
         public virtual DbSet<Files> Files { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -26,9 +31,9 @@ namespace AdoptionWebsite.Models
             if (!optionsBuilder.IsConfigured)
             {
                 IConfigurationRoot configuration = new ConfigurationBuilder()
-              .SetBasePath(Directory.GetCurrentDirectory())
-              .AddJsonFile("appsettings.json")
-              .Build();
+                            .SetBasePath(Directory.GetCurrentDirectory())
+                            .AddJsonFile("appsettings.json")
+                            .Build();
 
                 var connectionString = configuration.GetConnectionString("AdoptionDB");
                 optionsBuilder.UseSqlServer(connectionString);
@@ -65,6 +70,21 @@ namespace AdoptionWebsite.Models
                 entity.Property(e => e.CateName).HasMaxLength(50);
             });
 
+            modelBuilder.Entity<DbUser>(entity =>
+            {
+                entity.ToTable("db_user");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.UserName)
+                    .IsRequired()
+                    .HasMaxLength(20);
+
+                entity.Property(e => e.UserPassword)
+                    .IsRequired()
+                    .HasMaxLength(50);
+            });
+
             modelBuilder.Entity<Files>(entity =>
             {
                 entity.HasKey(e => e.Idno);
@@ -74,6 +94,8 @@ namespace AdoptionWebsite.Models
                 entity.Property(e => e.FileName).HasMaxLength(150);
 
                 entity.Property(e => e.FilePath).HasMaxLength(550);
+
+                entity.Property(e => e.IsDel).HasColumnName("isDel");
 
                 entity.Property(e => e.TableId).HasColumnName("Table_ID");
 

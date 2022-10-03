@@ -42,7 +42,7 @@ namespace AdoptionWebsite.Models.Repo
             //應該有更好的寫法
             foreach (var itemfile in _db.Files.Where(w => w.TableId == id && w.XTable == "Animal"))
             {
-                itemfile.isDel = null;
+                itemfile.IsDel = null;
             }
             _db.SaveChanges();
 
@@ -84,7 +84,7 @@ namespace AdoptionWebsite.Models.Repo
         {
             //將之前的刪除刪掉
             //應該有更好的寫法
-            foreach (var itemfile in _db.Files.Where(w => w.TableId == id && w.XTable == "Animal" && w.isDel == 1))
+            foreach (var itemfile in _db.Files.Where(w => w.TableId == id && w.XTable == "Animal" && w.IsDel == 1))
             {
                 _db.Files.Remove(itemfile);
             }

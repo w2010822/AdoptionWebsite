@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using AdoptionWebsite.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -32,6 +33,19 @@ namespace AdoptionWebsite
             var connection = Configuration.GetConnectionString("AdoptionDB");
             services.AddDbContext<Animal_AdoptionContext>(option=>option.UseSqlServer(connection));
             services.AddControllersWithViews();
+
+            services.AddControllersWithViews();
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            })
+                    .AddCookie(options =>
+                    {
+                        options.LoginPath = "/Login/Index";
+                    });
+
+            services.AddHttpContextAccessor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,13 +72,24 @@ namespace AdoptionWebsite
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseAuthentication(); // 驗證
+            app.UseAuthorization(); // 授權
+
+            app.UseCookiePolicy(new CookiePolicyOptions
+            {
+                // 所有 Cookie.SamSite 設置都會被提升為 Strict
+                MinimumSameSitePolicy = SameSiteMode.Strict,
+                // Cookie.SamSite 設置為 None 的話會被提升為 Lax
+                //MinimumSameSitePolicy = SameSiteMode.Lax,  
+                // MinimumSameSitePolicy 設置為最寬鬆，因此不會影響 Cookie.SamSite
+                //MinimumSameSitePolicy = SameSiteMode.None, 
+            });
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Animal}/{action=Index}/{id?}");
+                    pattern: "{controller=Login}/{action=Index}/{id?}");
             });
         }
     }

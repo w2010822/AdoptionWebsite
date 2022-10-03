@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "J9NplUJYv/tF0pJbbyCn6U94ObBWqC4ip2p+L5NLY9J7DtunRIQB9s9GKAHFU/+1PmTpl9glhz8y9wXaS3gQ7g==",
+  "dgSpecHash": "12KxQiKEKgj4jEbIY3eMIgVYgml2q4MQWXKZ0CXtWNLUL6Jo20TkdLx6yOEPYys+u/XxF/rqURn8+PJV6gPepg==",
   "success": true,
   "projectFilePath": "D:\\AdoptionWebsite\\AdoptionWebsite\\AdoptionWebsite.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\wujen\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.29\\microsoft.aspnetcore.authentication.jwtbearer.3.1.29.nupkg.sha512",
     "C:\\Users\\wujen\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\wujen\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
     "C:\\Users\\wujen\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\3.1.0\\microsoft.aspnetcore.razor.language.3.1.0.nupkg.sha512",

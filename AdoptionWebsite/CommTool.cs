@@ -3,6 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AdoptionWebsite.Models;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace AdoptionWebsite
 {

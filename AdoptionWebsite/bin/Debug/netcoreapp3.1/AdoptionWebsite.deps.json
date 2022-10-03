@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v3.1": {
       "AdoptionWebsite/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "3.1.29",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.25",
           "Microsoft.EntityFrameworkCore.Sqlite": "3.1.25",
           "Microsoft.EntityFrameworkCore.Tools": "3.1.25",
@@ -301,6 +302,20 @@
         },
         "compile": {
           "AdoptionWebsite.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.29": {
+        "dependencies": {
+          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "5.5.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
+            "assemblyVersion": "3.1.29.0",
+            "fileVersion": "3.100.2922.41808"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {}
         }
       },
       "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
@@ -4008,6 +4023,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.29": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-J0iVu0oHBUaNrmTx1dqQLi+b+QSQh4dIvFONmbd7s6UM+SMMHBZEcLUQsh6IQae6SusITqtWWX4ne+PQSbvMpA==",
+      "path": "microsoft.aspnetcore.authentication.jwtbearer/3.1.29",
+      "hashPath": "microsoft.aspnetcore.authentication.jwtbearer.3.1.29.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
       "type": "package",
