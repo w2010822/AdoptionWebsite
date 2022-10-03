@@ -1,0 +1,83 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AnimalList</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <style>
+        img{
+            max-height:250px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">動物領養</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="row" id="animal">
+            <div class="col-sm-6">
+
+                <div v-if="items._Files.length>0" v-for="item in items._Files" style="display:inline;margin:15px">
+                    <img v-bind:src="'@Url.Content("~/")'+item.filePath+''" />
+                </div>
+                <img v-else src="https://images2.gamme.com.tw/news2/2015/16/81/p56ZoJ_ekaWW.jpg" />
+
+            </div>
+            <div class="col-sm-6">
+
+                <p><label>種類：{{items._AnimalCate.cateName}}</label></p>
+                <p><label>名稱：{{items.animals.name}}</label></p>
+                <p><label>性別：{{items.animals.sex=='F' ? '母' : '公' }}</label></p>
+                <p><label>備註：{{items.animals.memo}}</label></p>
+
+                <button :disabled="items.animals.isAdoption == 1" class="btn btn-primary">{{items.animals.isAdoption=='0' ? '我要領養' : '我找到家囉' }}</button>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script type="text/javascript">
+
+
+     var cus = new Vue({
+         el: '#animal',
+        data: {
+            items: []
+        },
+        created() {
+            axios.get('@Html.Raw(Url.Content("~/api/iAnimalData/"+ ViewBag.ID))')
+                .then(response => {
+                    this.items = response.data;
+                    console.log(response.data)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+        }
+     })
+
+</script>

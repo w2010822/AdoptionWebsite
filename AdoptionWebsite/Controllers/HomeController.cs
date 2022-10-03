@@ -28,6 +28,17 @@ namespace AdoptionWebsite.Controllers
             return View();
         }
 
+        public IActionResult AnimalList()
+        {
+            return View();
+        }
+
+        public IActionResult AnimalDetail(int id)
+        {
+            ViewBag.ID = id;
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

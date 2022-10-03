@@ -181,3 +181,5 @@ D:\AdoptionWebsite\AdoptionWebsite\obj\Debug\netcoreapp3.1\Razor\Views\Login\Ind
 D:\AdoptionWebsite\AdoptionWebsite\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\AdoptionWebsite\AdoptionWebsite\obj\Debug\netcoreapp3.1\AdoptionWebsite.csproj.CoreCompileInputs.cache
 D:\AdoptionWebsite\AdoptionWebsite\obj\Debug\netcoreapp3.1\AdoptionWebsite.MvcApplicationPartsAssemblyInfo.cache
+D:\AdoptionWebsite\AdoptionWebsite\obj\Debug\netcoreapp3.1\Razor\Views\Home\AnimalList.cshtml.g.cs
+D:\AdoptionWebsite\AdoptionWebsite\obj\Debug\netcoreapp3.1\Razor\Views\Home\AnimalDetail.cshtml.g.cs
